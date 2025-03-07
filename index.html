@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mc donalds</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    
+
     <style>
         body {
             background-image: url('https://i.ebayimg.com/images/g/A50AAOSwTA9X6diV/s-l400.jpg');
@@ -20,13 +21,13 @@
               
         }
         .outer-rectangle {
-            width: 70%;  /* Slightly smaller than background */
-            height: 90vh; /* Adjust height as needed */
-            background: black; /* White with slight transparency */
-            border-radius: 20px; /* Curved edges */
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); /* Soft shadow */
-            position: relative; /* Needed for absolute positioning inside */
-            padding: 10px; /* Add some space inside */
+            width: 70%; 
+            height: 97vh; 
+            background: black; 
+            border-radius: 20px; 
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); 
+            position: relative; 
+            padding: 10px; 
             
         }
         .inner-rectangle {
@@ -42,31 +43,563 @@
             color: white;
             font-weight: bold;
             
- /* Adjust as needed */
+
 
         }
 
+        .circle {
+  width: 50px;
+  height: 50px;
+  background: rgb(0, 0, 0);
+  border-radius: 50%;
+  position: absolute;
+  top: 1%;
+  left: 1%;
+}
+.star-circle {
+    position: relative;
+    top: 4; 
+    left: 9;
+    width: 25px; 
+    height: 25px;
+    background-color: gold;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+.image-wrapper {
+    position: absolute;
+    top: 45%; 
+    left: 6%;
+    width: 110px; 
+    height: 110px; 
+}
 
-        /* Using unique class names instead of nth-child */
+.shelby-image {
+    width: 110px;
+    height: 110px;
+    border-radius: 55px;
+    display: block;
+}
+
+.star-circle {
+    position: absolute;
+    top: 2px; 
+    right: 2px; 
+    width: 25px; 
+    height: 25px;
+    background-color: gold;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.text-content {
+    color: white;
+    font-family: Arial, sans-serif;
+    max-width: 300px; 
+    position: relative;
+    left: 105px; 
+    top: -12%;
+    transform: translateY(-50%);
+    margin: 0;
+    padding: 0;
+    
+}
+.text-content h5 {
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    width: 1000%;
+    margin: -1px;
+    padding: -1px;
+    font-weight: 250;
+    font-size: 16px;
+    
+       
+}
+.text-content h4, 
+.text-content h5 {
+    margin: 5px !important;
+    padding: 5px!important;
+}
+.text-content h1 {color: white;
+    font-family: Arial, sans-serif;
+    max-width: 300px; 
+    position: relative;
+    left: -110px; 
+    top: -40%;
+    margin: 2px;
+    padding: 2px;
+    transform: translateY(-8px);
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    width: 1000%;
+    font-size: 55px;
+    font-weight: 400;
+}
+canvas {
+    background: blue;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px black;
+    padding: 10px;
+}
+points-label {
+    color: white;
+    font-size: 16px;
+    opacity: 0.8;
+}
+
+.main-points {
+    color: white;
+    font-weight: bold;
+}
+
+.points-text {
+    color: white;
+    font-size: 14px;
+}
+
+.points-bonus {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+}
+
         .rect1 { width: 96%; height: 48vh; background: red; top:3%; left: 2%;position: absolute; }
-        .rect2 { width: 100px; height: 80px; background: blue; top: 30%; left: 50%; }
-        .rect3 { width: 120px; height: 50px; background: green; top: 50%; left: 20%; }
-        .rect4 { width: 90px; height: 70px; background: orange; top: 70%; left: 40%; }
-        .rect5 { width: 110px; height: 60px; background: purple; top: 20%; left: 70%; }
+        .rect2 { width: 580%; height: 7vh; background: rgb(0, 0, 0); top:-138%; left: 106%;position: absolute;border-radius: 25px;}
+        .rect3 { width: 43%; height: 4vh; background: #ffffff; top:19%; left: 2.5%;position: absolute;border-radius: 15px; }
+        .rect4 { width: 16%; height: 4vh; background: #838383; top: 19%; left: 47%;position: absolute;border-radius: 15px;display: flex;
+    justify-content: center; /* Centers text horizontally */
+    align-items: center;  }
+        .rect5 { width: 16%; height: 4vh; background: #838383; top: 19%; left:65%;position: absolute;border-radius: 15px;justify-content: center;align-items: center;text-align: center;font-weight: 100;font-family: Arial, sans-serif; }
+        .rect6 { width: 16%; height: 4vh; background: #838383; top: 19%; left: 83%; position: absolute;border-radius: 15px;justify-content: center;align-items: center;text-align: center;font-weight: 100;font-family: Arial, sans-serif;}
+        .rect7 { width: 140%; height: 7vh; background: rgb(0, 0, 0); top:-150px; right: -850px;position: absolute;border-radius: 20px; }
+        .rect8 {  width: 56%; height: 5vh; background: #838383; top: 14%; left: 37%;position: absolute;border-radius: 15px;justify-content: center;align-items: center;text-align: center;font-weight: 100;font-family: Arial, sans-serif; }
+        .rect9 { width: 24%; height: 250px; background: #0033FF; top: 52.5%; left: 75%;position: relative; }
+        .rect10{ width: 24%; height: 77px; background: #838383; top: 54%; left: 75%;position:relative; }
+        .rect11{ width: 24%; height: 77px; background: #838383; top: 43%; left: 50%;position:relative; }
+        .rect12{ width: 24%; height: 125px; background: #26B137; top: -4%; left: 50%;position:relative; }
+        .rect13{ width: 24%; height: 114px; background: #FFA500; top: -2.75%; left: 50%;position: relative; }
+        .rect14{ width: 110px;
+    height: 35px;
+    background: black;
+    position: absolute;
+    top: 10px;
+    left: 120px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row-reverse; /* Swap elements order */
+    padding: 0 10px; }
         
+    
+    .rect15{ width: 45%;
+    height: 20px;
+    background: #ffffff;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    order: -1; }
+    
+    
+    .rect16{width: 60px;
+    height: 35px;
+    background: black;
+    position: absolute;
+    top: 21px;
+    left: 140px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row-reverse; 
+    padding: 0 10px;
+font-size: 16px;
+font-family: Arial, sans-serif;}
+        
+
+.rect17{width: 40px;
+    height: 35px;
+    background: black;
+    position: absolute;
+    top: 36px;
+    left: 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row-reverse; 
+    padding: 0 10px;
+font-size: 16px;
+font-family: Arial, sans-serif;}
+
+
     </style>
 </head>
 <body>
     <div class="outer-rectangle">
-        <div class="inner-rectangle rect1">
-            <div>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx5JCSkQz03YYJJPQvVZ6YOpXAf_gcrEA2vg&s" alt="thomas shelby" style="width: 100px; height: 100px; border-radius: 50px; top: 15%;right: 7%;position: absolute;">
-            </div>
-        </div>
+        <div  style="position: absolute; 
+        top: 380px; 
+        left: 32px;
+        color: rgb(255, 255, 255);
+        font-size: 42px;
+        font-family: Arial, sans-serif;font-weight: bold;
+        font-weight: 300;">Sun 10.11</div>
+        <div  style="position: absolute; 
+        top: 390px; 
+        left: 362px;
+        color: rgb(255, 255, 255);
+        font-size: 28px;
+        font-family: Arial, sans-serif;font-weight: bold;
+        font-weight: 300;">Today’s Plan</div>
+        <div  style="position: absolute; 
+        top: 440px; 
+        left: 82px;
+        color: rgb(255, 255, 255);
+        font-size: 21px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 100;">Sunday</div>
+        <div  style="position: absolute; 
+        top: 440px; 
+        left: 402px;
+        color: rgb(255, 255, 255);
+        font-size: 21px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 100;">8am  - 12pm </div>
+        <div  style="position: absolute; 
+        top: 455px; 
+        left: 72px;
+        color: rgb(255, 255, 255);
+        font-size: 21px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 100;
+        opacity: 0.5;">_______________________________________</div>
+        <div  style="position: absolute; 
+        top: 490px; 
+        left: 82px;
+        color: rgb(255, 255, 255);
+        font-size: 21px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 100;">Kitchen Station</div>
+        <div  style="position: absolute; 
+        top: 490px; 
+        left: 402px;
+        color: rgb(255, 255, 255);
+        font-size: 21px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 100;">12pm  - 4pm </div>
+        <div  style="position: absolute; 
+        top: 505px; 
+        left: 72px;
+        color: rgb(255, 255, 255);
+        font-size: 21px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 100;
+        opacity: 0.5;">_______________________________________</div>
+         <div  style="position: absolute; 
+         top: 540px; 
+         left: 82px;
+         color: rgb(255, 255, 255);
+         font-size: 21px;
+         font-family: 'Poppins', sans-serif;
+         font-weight: 100;">Break</div>
+         <div  style="position: absolute; 
+         top: 540px; 
+         left: 412px;
+         color: rgb(255, 255, 255);
+         font-size: 21px;
+         font-family: 'Poppins', sans-serif;
+         font-weight: 100;">4pm  - 5pm </div>
+         <div  style="position: absolute; 
+         top: 555px; 
+         left: 72px;
+         color: rgb(255, 255, 255);
+         font-size: 21px;
+         font-family: 'Poppins', sans-serif;
+         font-weight: 100;
+         opacity: 0.5;">_______________________________________</div>
+         <div  style="position: absolute; 
+         top: 590px; 
+         left: 82px;
+         color: rgb(255, 255, 255);
+         font-size: 21px;
+         font-family: 'Poppins', sans-serif;
+         font-weight: 100;">Cash Register</div>
+         <div  style="position: absolute; 
+         top: 590px; 
+         left: 412px;
+         color: rgb(255, 255, 255);
+         font-size: 21px;
+         font-family: 'Poppins', sans-serif;
+         font-weight: 100;">5pm  - 6pm </div>
+          <div  style="position: absolute; 
+          top: 605px; 
+          left: 72px;
+          color: rgb(255, 255, 255);
+          font-size: 21px;
+          font-family: 'Poppins', sans-serif;
+          font-weight: 100;
+          opacity: 0.5;">_______________________________________</div>
+          <div  style="position: absolute; 
+          top: 640px; 
+          left: 82px;
+          color: rgb(255, 255, 255);
+          font-size: 21px;
+          font-family: 'Poppins', sans-serif;
+          font-weight: 100;">Table cleaning</div>
+          <div  style="position: absolute; 
+          top: 640px; 
+          left: 412px;
+          color: rgb(255, 255, 255);
+          font-size: 21px;
+          font-family: 'Poppins', sans-serif;
+          font-weight: 100;">5pm  - 6pm </div>
+          <div  style="position: absolute; 
+          top: 655px; 
+          left: 72px;
+          color: rgb(255, 255, 255);
+          font-size: 21px;
+          font-family: 'Poppins', sans-serif;
+          font-weight: 100;
+          opacity: 0.5;">_______________________________________</div>
+        
 
+        <div class="inner-rectangle rect1">
+            <div class="image-wrapper">
+                <img src="https://i.pinimg.com/736x/b9/ff/c8/b9ffc88ad813f68a723558620ce3ff47.jpg" 
+                     alt="thomas shelby" 
+                     class="shelby-image">
+                <div class="star-circle">★</div>
+                <div class="text-content">
+                    <h4>THOMAS<npsd>_</npsd>SHELBY</h4>
+                    <h5>McStar’s Tatoomie employee</h5>
+                    <h5>Manager / Kitchen helper</h5>
+                    <h1>Hello Star</h1>
+                </div>
+                <div class="inner-rectangle rect2">
+                    <div class="inner-rectangle rect3">
+                       <img src="media\image-removebg-preview.png" alt="search icon" style="width: 28px; height: 28px; border-radius: 14px; top: 9%;left: -0.5%;object-fit:cover;position: relative;"> 
+                       <P style="color:black;font-family:Arial,sans-serif;top:-40%;position:relative;font-size: 16px;font-weight: 200;">search by name task or dish </P>
+                    </div>
+                    <div class="inner-rectangle rect4">
+                        <p style="color:black;font-family:Arial,sans-serif;top:-5%;left:8%;position:relative;font-size: 13px;font-weight: 200;">Documents</p>
+                        <img src="https://static.thenounproject.com/png/765869-200.png" alt="ne arrow" style="width: 32px; height: 32px; border-radius: 16px; top: -1%;left: 1%;object-fit:cover;position: relative;">
+                    </div>
+                    <div class="inner-rectangle rect5">
+                        <p style="color:black;font-family:Arial,sans-serif;top:-5%;left:8%;position:relative;font-size: 13px;font-weight: 200;">McStar's</p>
+                        <img src="https://static.thenounproject.com/png/765869-200.png" alt="ne arrow" style="width: 32px; height: 32px; border-radius: 16px; top: -1%;left: 9%;object-fit:cover;position: relative;">
+                    </div>       
+                    <div class="inner-rectangle rect6">
+                        <p style="color:black;font-family:Arial,sans-serif;top:-5%;left:8%;position:relative;font-size: 13px;font-weight: 200;">Planner</p>
+                        <img src="https://static.thenounproject.com/png/765869-200.png" alt="ne arrow" style="width: 32px; height: 32px; border-radius: 16px; top: -1%;left: 9%;object-fit:cover;position: relative;font-size: 20px;">
+                    </div>
+                    
+
+                </div>
+                <div class="inner-rectangle rect7">
+                    <div class="inner-rectangle rect8">logged</div>
+                    <img src="https://i.pinimg.com/736x/b9/ff/c8/b9ffc88ad813f68a723558620ce3ff47.jpg" alt="thomas shelby" style="width: 40px; height: 40px; border-radius: 20px; top: 10%; left: -30%;object-fit:cover;position: relative;">
+                </div>
+            </div>
+            
+            <div class="circle">
+                <img src="https://pngimg.com/d/mcdonalds_PNG17.png" alt="mc donalds logo" style="width: 50px; height: 50px; border-radius: 25px; top: 1%;left: 1%;object-fit:cover;position: relative;">
+            </div>
+            <div>
+                <p style="font-size: 18px;font-family:Arial,sans-serif;top: 44%;left:227%;position:relative;font-weight: 200;">Your McStar’s planner</p>
+            <img src="https://pngimg.com/d/mcdonalds_PNG17.png" alt="mc donalds logo" style="width: 170px; height: 170px; border-radius: 85px; top: 32%;left: 247%;object-fit:cover;position: relative;">
+</div>
+            
+        </div>
+      <div class="inner-rectangle rect9">
+        <p style="color: white; 
+        position: absolute;
+        top: 17px;
+        left: 23px;
+        font-size: 20px;
+        margin: 0;
+        z-index: 1;
+        font-family: Arial, sans-serif;">Balance</p>
+        <div class="inner-rectangle rect14">
+            <p style="color: white;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            margin: 0;
+            margin-right: auto;">Weekly</p>
+            <div class="inner-rectangle rect15">
+                <p style ="color: #000000;
+                font-family: Arial, sans-serif;
+                font-size: 12px;
+                margin: 0;">Daily</p></div>
+        </div>
+        <canvas id="balanceChart"></canvas>
+
+
+      </div>
+      <div class="inner-rectangle rect10">
+        <div  style="position: absolute; 
+        top: 22px; 
+        left: 15px;
+        color: rgb(255, 255, 255);
+        font-size: 18px;
+        font-family: Arial, sans-serif;font-weight: bold;">McStarship</div>
+        <div style="position: absolute; 
+        top: 45px;  
+        left: 15px;
+        font-size: 16px;
+        color: rgb(255, 255, 255);
+        font-weight: 200;
+        font-family:  'Roboto Thin', sans-serif;">
+for employees
+</div>
+<div class="inner-rectangle rect16"> Get taxi</div>
+      </div>
+      <div class="inner-rectangle rect11">
+        <div  style="position: absolute; 
+        top: 11px; 
+        left: 15px;
+        color: rgb(255, 255, 255);
+        font-size: 18px;
+        font-family: Arial, sans-serif;font-weight: bold;">Your promo code</div>
+        <div class="points-bonus" style="position: absolute; bottom: 13px; right: 15px;font-size: 15px;font-family: Arial, sans-serif;">
+        LEN36PL#
+    </div>
+        <div class="inner-rectangle rect17"> Copy</div>
+      </div>
+      <div class="inner-rectangle rect12"><div class="points-label" style="position: absolute; 
+        top: 12px; 
+        left: 15px;
+        color: white;
+        font-size: 27px;
+        font-family: Arial, sans-serif;">
+        Your points
+    </div>
+    <div style="position: absolute; 
+                top: 45px;  
+                left: 15px;
+                font-size: 24px;
+                color: white;
+                font-weight: 100;
+                font-family:  'Roboto Thin', sans-serif;">
+        6505 points
+    </div>
+    
+    <div class="points-bonus" style="position: absolute; bottom: 15px; right: 15px;font-size: 40px;font-family: Arial, sans-serif;">
+        +12
+    </div></div>
+      <div class="inner-rectangle rect13">
+        <div  style="position: absolute; 
+        top: 5px; 
+        left: 15px;
+        color: rgb(0, 0, 0);
+        font-size: 25px;
+        font-family: Arial, sans-serif;font-weight: bold;">Customer reviews</div>
+        <div style="position: absolute; 
+        top: 38px;  
+        left: 15px;
+        font-size: 24px;
+        color: rgb(0, 0, 0);
+        font-weight: bold;
+        font-family:  'Roboto Thin', sans-serif;">
+2810
+</div>
+<div style ="position: absolute;
+top: 68px; 
+left: 9px; 
+width:34px; 
+height: 34px;
+background-color: gold;
+color: black;
+font-size: 16px;
+font-weight: bold;
+text-align: center;
+line-height: 25px;
+border-radius: 50%;
+box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+font-size: 34px;
+display: flex;
+  justify-content: center;
+  align-items: center;">★</div>
+  <div  style=" color: #000000;
+  font-size: 18px;
+  font-weight: bold;position: absolute; bottom: 15px; right: 15px;font-size: 40px;font-family: Arial, sans-serif;">
+    +7S
+</div>
+      </div>    
         
         
     </div>
     
+    <script>
+        const ctx = document.getElementById('balanceChart').getContext('2d');
+        const balanceChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+                datasets: [{
+                    label: 'Balance',
+                    data: [10, 50, 30, 60, 100],  // Adjust to match the peaks and dips
+ // Example data
+                    borderColor: 'black',
+                    backgroundColor: 'blue',
+                    pointBackgroundColor: 'black',
+                    pointBorderColor: 'black',
+                    borderWidth: 5,  // Thicker line for a clean look
+                    fill: false,
+                    pointRadius: function(ctx) {
+                        return ctx.dataIndex === 3 ? 8 : 0; // Only show a dot at index 3 (April)
+                    },
+                    pointHoverRadius: function(ctx) {
+                        return ctx.dataIndex === 3 ? 10 : 0;
+                    }
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false // Removes the toggler (legend)
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(tooltipItem) {
+                                return `$${tooltipItem.raw.toFixed(2)}`;
+                            }
+                        },
+                        backgroundColor: "black",
+                        titleColor: "white",
+                        bodyColor: "white",
+                    }
+                },
+                scales: {
+    x: {
+        display: false  // Hide x-axis
+    },
+    y: {
+        display: false,  // Hide y-axis
+        min: 0,          // Start at the bottom
+        max: 120         // Adjust to fit the highest peak
+    }
+}
+
+            }
+        });
+    </script>
+    
+    
+       
 </body>
 </html>
